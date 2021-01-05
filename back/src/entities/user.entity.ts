@@ -22,6 +22,9 @@ export class UserEntity {
   @Column()
   lastName: string;
 
+  @Column({unique: true})
+  username: string;
+
   @Column()
   email: string;
 
@@ -47,4 +50,10 @@ export class UserEntity {
     };
     return userObject;
   }
+
+  @Column()
+  createdAt: Date;
+
+  @Column()
+  updatedAt: Date;
 }
