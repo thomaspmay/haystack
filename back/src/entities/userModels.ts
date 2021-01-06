@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export class LoginUserDto {
+export class LoginUserDTO {
   @ApiProperty()
   readonly email: string;
 
@@ -8,7 +8,7 @@ export class LoginUserDto {
   readonly password: string;
 }
 
-export class CreateUserDto {
+export class CreateUserDTO {
     @ApiProperty() 
     readonly id: number;
 

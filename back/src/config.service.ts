@@ -1,9 +1,6 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { Injectable } from '@nestjs/common';
 import { UserEntity } from './users/userModels/user.entity';
-import { RecipeEntity } from './recipes/recipeModels/recipe.entity';
-import { IngredientEntity } from './recipes/recipeModels/ingredient.entity';
-import { MetaDataEntity } from './recipes/recipeModels/metadata.entity';
 
 require('dotenv').config();
 
@@ -44,7 +41,7 @@ export class ConfigService {
       password: this.getValue('POSTGRES_PASSWORD'),
       database: this.getValue('POSTGRES_DATABASE'),
 
-      entities: [ UserEntity, RecipeEntity, IngredientEntity, MetaDataEntity],
+      entities: [ UserEntity, UniversityEntity, ActivityEntity, ReviewEntity],
 
       migrationsTableName: 'migration',
 
