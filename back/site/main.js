@@ -177,7 +177,7 @@ HomePageComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefine
         args: [{
                 selector: 'app-home-page',
                 templateUrl: './home-page.component.html',
-                styleUrls: ['./home-page.component.sass']
+                styleUrls: ['./home-page.component.scss']
             }]
     }], function () { return []; }, null); })();
 
@@ -213,7 +213,7 @@ AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCompo
         args: [{
                 selector: 'app-root',
                 templateUrl: './app.component.html',
-                styleUrls: ['./app.component.sass']
+                styleUrls: ['./app.component.scss']
             }]
     }], null, null); })();
 

@@ -20,11 +20,14 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>haystack Logo</span>
-      <button>About Haystack</button>
-      <button>Quick Review</button>
-      <button>Create New Listing</button>
-      <button>Login</button>
+      <div id="logo"><span>haystack Logo</span></div>
+      <div id="main-nav">
+        <button>About Haystack</button>
+        <button>Quick Review</button>
+        <button>Create New Listing</button>
+        <button>Login</button>
+      </div>
+      
     </mat-toolbar>
     <!-- Add Content Here -->
   </mat-sidenav-content>
