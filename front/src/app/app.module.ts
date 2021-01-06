@@ -15,12 +15,28 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { HomePageComponent } from './home-page/home-page.component';
+import { ErrorComponent } from './error/error.component';
+import { LoginComponent } from './login/login.component';
+import { SearchComponent } from './search/search.component';
+import { CreateActivityComponent } from './create-activity/create-activity.component';
+import { ActivitiesComponent } from './activities/activities.component';
+import { ProfileComponent } from './profile/profile.component';
+import { AboutComponent } from './about/about.component';
+import { CreateReviewComponent } from './create-review/create-review.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainNavComponent,
-    HomePageComponent
+    HomePageComponent,
+    ErrorComponent,
+    LoginComponent,
+    SearchComponent,
+    CreateActivityComponent,
+    ActivitiesComponent,
+    ProfileComponent,
+    AboutComponent,
+    CreateReviewComponent
   ],
   imports: [
     BrowserModule,
