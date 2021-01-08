@@ -1,6 +1,6 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { Injectable } from '@nestjs/common';
-import { UserEntity } from './users/userModels/user.entity';
+import { UserEntity } from './models/entities/user.entity';
 
 require('dotenv').config();
 
