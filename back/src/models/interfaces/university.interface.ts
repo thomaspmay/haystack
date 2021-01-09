@@ -8,7 +8,7 @@ export interface Iuniversity {
     body?: string;
     createdAt?: Date;
     updatedAt?: Date;
-    likes?: number;
+    isPublished: boolean;
     headerImage?: string;
     images: Iimage;
 }

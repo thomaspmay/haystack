@@ -8,6 +8,7 @@ import { UserService } from './user/user.service';
 import { AuthModule } from './auth/auth.module';
 import { ActivityModule } from './activity/activity.module';
 import { ServeStaticModule } from '@nestjs/serve-static'
+import { ReviewModule } from './review/review.module';
 
 @Module({
   imports: [
@@ -23,7 +24,8 @@ import { ServeStaticModule } from '@nestjs/serve-static'
     }),
     UserModule,
     AuthModule,
-    ActivityModule
+    ActivityModule,
+    ReviewModule
   ],
   controllers: [AppController],
   providers: [AppService, userService],
