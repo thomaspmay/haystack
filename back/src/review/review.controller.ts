@@ -12,20 +12,21 @@ import path = require('path');
 import { Image } from '../model/Image.interface';
 import { join } from 'path';
 import { Ireview } from 'src/models/interfaces/review.interface';
+import { ReviewService } from './review.service';
 
 export const BLOG_ENTRIES_URL ='http://localhost:3000/api/blog-entries';
 
 @Controller('reviews')
 export class ReviewController {
 
-    constructor(private blogService: BlogService) {}
+    constructor(private reviewService: ReviewService) {}
 
 
     @UseGuards(JwtAuthGuard)
     @Post()
     create(@Body()blogEntry: BlogEntry, @Request() req): Observable<BlogEntry> {
         const user = req.user;
-        return this.blogService.create(user, blogEntry);
+        return this.reviewService.create(user, blogEntry);
     }
 
     // @Get()

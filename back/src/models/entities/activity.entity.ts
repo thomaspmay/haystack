@@ -7,7 +7,12 @@ import {
     OneToMany,
     ManyToMany,
     JoinTable,
+    BeforeUpdate,
+    ManyToOne,
 } from 'typeorm';
+import { Ireview } from '../interfaces/review.interface';
+import { ReviewEntity } from './review.entity';
+import { UserEntity } from './user.entity';
 
 @Entity()
 export class ActivityEntity {
@@ -32,6 +37,7 @@ export class ActivityEntity {
 
   @Column({type: 'timestamp', default: () => "CURRENT_TIMESTAMP"})
   updatedAt: Date;    
+  university: any;
 
   @BeforeUpdate()
   updateTimestamp() {
@@ -50,7 +56,11 @@ export class ActivityEntity {
   @Column({nullable: true})
   isPublished: boolean;
 
-  @ManyToOne(type => UserEntity, user => user.blogEntries)
+  @ManyToOne(type => UserEntity, user => user.activityEntries)
   author: UserEntity;
+
+  @OneToMany(type => ReviewEntity, review => review.)
+  reviews: Ireview
+
 
 }

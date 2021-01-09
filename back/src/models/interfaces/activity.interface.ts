@@ -1,3 +1,5 @@
+import { ReviewEntity } from "../entities/review.entity";
+import { UserEntity } from "../entities/user.entity";
 import { Iuser } from "./user.interface";
 
 export interface Iactivity {
@@ -9,9 +11,10 @@ export interface Iactivity {
     createdAt?: Date;
     updatedAt?: Date;
     likes?: number;
-    author?: Iuser;
     headerImage?: string;
     publishedDate?: Date;
     isPublished?: boolean;
     isAccepted?: boolean;
+    author?: UserEntity;
+    reviews?: ReviewEntity;
 }

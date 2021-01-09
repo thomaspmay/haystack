@@ -12,6 +12,7 @@ import {
 import * as bcrypt from 'bcrypt';
 import { Iuser, UserRole } from '../interfaces/user.interface';
 import { ActivityEntity } from './activity.entity';
+import { ReviewEntity } from './review.entity';
 
 @Entity()
 export class UserEntity {
@@ -36,7 +37,7 @@ export class UserEntity {
   password: string;
 
   @Column({type: 'enum', enum: UserRole, default: UserRole.USER})
-    role: UserRole;
+  role: UserRole;
 
   @Column({type: 'timestamp', default: () => "CURRENT_TIMESTAMP"})
   createdAt: Date;
