@@ -1,0 +1,51 @@
+
+.sidenav-container {
+    height: 100px;
+  }
+  
+  .sidenav {
+    width: 200px;
+  }
+  
+  .sidenav .mat-toolbar {
+    background: inherit;
+  }
+  
+  .mat-toolbar.mat-primary {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    height: 100px;
+  }
+  
+  
+  
+  div#main-nav {
+    width: 100%;
+  
+    button#about {
+      float: left;
+      margin: 20px;
+    }
+  
+    div#logo {
+      margin: 20px;
+  
+    }
+    a {
+      button {
+        margin: 20px 10px;
+        border-radius: 50px;
+        float: right;
+    
+        
+        
+        span {
+          margin: 0 0 0 5px;
+          transform: translateX(10px);
+          transform: translateY(-2px);
+        }
+      }
+    }
+    
+  }
