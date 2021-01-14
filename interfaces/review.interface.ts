@@ -7,7 +7,8 @@ export interface Review {
     createdAt?: Date;
     updatedAt?: Date;
     likes?: number;
-    author?: user;
+    // author?: user;
+    author?: number;
     publishedDate?: Date;
     isPublished?: boolean;
     isAccepted?: boolean;

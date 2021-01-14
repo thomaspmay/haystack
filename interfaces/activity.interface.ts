@@ -16,10 +16,14 @@ export interface Activity {
     createdAt?: Date;
     updatedAt?: Date;
     likes?: number;
+    avgRating: number;
     headerImage?: string;
     dateAccepted?: Date;
     isAccepted?: boolean;
-    author?: user;
-    reviews?: Review;
-    university?: University;
+    // author?: user;
+    author?: number;
+    // reviews?: Review;
+    reviews?: number;
+    // university?: University;
+    university?: number;
 }

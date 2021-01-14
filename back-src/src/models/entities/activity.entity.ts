@@ -57,6 +57,9 @@ export class ActivityEntity {
   @Column({default: 0})
   likes: number;
 
+  @Column({default: 0})
+  avgRating: number;
+
   @Column({nullable: true})
   headerImage: string;
 

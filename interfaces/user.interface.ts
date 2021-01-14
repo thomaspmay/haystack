@@ -13,8 +13,10 @@ export interface user {
     createdAt?: Date;
     updatedAt?: Date;
     profileImage?: string;
-    createdActivities?: Activity[];
-    createdReviews?: Review[];
+    // createdActivities?: Activity[];
+    createdActivities?: number[];
+    // createdReviews?: Review[];
+    createdReviews?: number[];
 }
 
 export enum UserRole {

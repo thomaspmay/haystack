@@ -1,4 +1,4 @@
-import { User } from './user.interface';
+// import { User } from './user.interface';
 
 export interface BlogEntry {
     id?: number;
@@ -9,7 +9,7 @@ export interface BlogEntry {
     createdAt?: Date;
     updatedAt?: Date;
     likes?: number;
-    author?: User;
+    author?: number;
     headerImage?: string;
     publishedDate?: Date;
     isPublished?: boolean;

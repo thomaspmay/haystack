@@ -11,5 +11,7 @@ export interface ActivityList {
     updatedAt?: Date;
     isVisibile?: boolean;
     activities?: Activity[];
+    // activities?: number[];
     university?: University;
+    // university?: number;
 }
