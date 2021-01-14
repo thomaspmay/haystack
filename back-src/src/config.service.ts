@@ -4,8 +4,9 @@ import { UserEntity } from './models/entities/user.entity';
 import { ActivityEntity } from './models/entities/activity.entity';
 import { ReviewEntity } from './models/entities/review.entity';
 import { UniversityEntity } from './models/entities/university.entity';
+import { ActivityListEntity } from './models/entities/activityList.entity';
 
-require('dotenv').config();
+let config = require('dotenv').config();
 
 export class ConfigService {
 
@@ -44,7 +45,7 @@ export class ConfigService {
       password: this.getValue('POSTGRES_PASSWORD'),
       database: this.getValue('POSTGRES_DATABASE'),
 
-      entities: [ UserEntity, UniversityEntity, ActivityEntity, ReviewEntity],
+      entities: [ UserEntity, UniversityEntity, ActivityEntity, ActivityListEntity, ReviewEntity],
 
       migrationsTableName: 'migration',
 

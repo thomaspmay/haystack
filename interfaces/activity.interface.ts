@@ -1,4 +1,5 @@
 import { Review } from "./review.interface";
+import { University } from "./university.interface";
 import { user } from "./user.interface";
 
 export interface Activity {
@@ -6,14 +7,19 @@ export interface Activity {
     title?: string;
     slug?: string;
     description?: string;
-    body?: string;
+    tags: string[];
+    location?: string;
+    lat?: number;
+    lng?: number;
+    zoom?: number;
+    website?: string;
     createdAt?: Date;
     updatedAt?: Date;
     likes?: number;
     headerImage?: string;
-    publishedDate?: Date;
-    isPublished?: boolean;
+    dateAccepted?: Date;
     isAccepted?: boolean;
     author?: user;
     reviews?: Review;
+    university?: University;
 }

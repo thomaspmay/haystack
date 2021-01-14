@@ -28,15 +28,26 @@ export class ActivityEntity {
   @Column({default: ''})
   description: string;
 
-  @Column({default: ''})
-  body: string;
+  @Column()
+  tags: string[];
+
+  @Column()
+  location: string;
+
+  @Column()
+  lat: number;
+
+  @Column()
+  lng: number;
+
+  @Column()
+  zoom: number;
 
   @Column({type: 'timestamp', default: () => "CURRENT_TIMESTAMP"})
   createdAt: Date;
 
   @Column({type: 'timestamp', default: () => "CURRENT_TIMESTAMP"})
-  updatedAt: Date;    
-  university: any;
+  updatedAt: Date;
 
   @BeforeUpdate()
   updateTimestamp() {
@@ -50,10 +61,10 @@ export class ActivityEntity {
   headerImage: string;
 
   @Column({nullable: true})
-  publishedDate: Date;
+  dateAccepted: Date;
 
   @Column({nullable: true})
-  isPublished: boolean;
+  isAccepted: boolean;
 
   @ManyToOne(type => UserEntity, user => user.activityEntries)
   author: UserEntity;
@@ -61,5 +72,7 @@ export class ActivityEntity {
   @OneToMany(type => ReviewEntity, review => review.)
   reviews: ReviewEntity;
 
+  @Column()
+  university: any;
 
 }
