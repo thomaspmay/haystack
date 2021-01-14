@@ -11,5 +11,6 @@ export interface University {
     updatedAt?: Date;
     isPublished: boolean;
     headerImage?: string;
-    images: Iimage;
+    // images: Iimage;
+    images?: string[];
 }

@@ -18,8 +18,8 @@ export interface user {
 }
 
 export enum UserRole {
-    DEV = 'developer',
-    ADMIN = 'admin',   
+    ADMIN = 'admin',
+    DEV = 'developer',   
     VERIFIED = 'verified',
     USER = 'user'
 }
