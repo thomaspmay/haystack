@@ -1,5 +1,5 @@
 import { Review } from "./review.interface";
-import { User } from "./user.interface";
+import { user } from "./user.interface";
 
 export interface Activity {
     id?: number;
@@ -14,6 +14,6 @@ export interface Activity {
     publishedDate?: Date;
     isPublished?: boolean;
     isAccepted?: boolean;
-    author?: User;
+    author?: user;
     reviews?: Review;
 }

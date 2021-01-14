@@ -10,18 +10,19 @@ import {
     BeforeUpdate,
     ManyToOne,
 } from 'typeorm';
-import { Ireview } from '../interfaces/review.interface';
+import { ActivityEntity } from './activity.entity';
+import { ActivityListEntity } from './activityList.entity';
 import { ReviewEntity } from './review.entity';
 import { UserEntity } from './user.entity';
 
 @Entity()
-export class ActivityEntity {
+export class UniversityEntity {
   
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  title: string;
+  name: string;
 
   @Column()
   slug: string;
@@ -37,30 +38,23 @@ export class ActivityEntity {
 
   @Column({type: 'timestamp', default: () => "CURRENT_TIMESTAMP"})
   updatedAt: Date;    
-  university: any;
 
   @BeforeUpdate()
   updateTimestamp() {
       this.updatedAt = new Date;
   }
 
-  @Column({default: 0})
-  likes: number;
-
   @Column({nullable: true})
   headerImage: string;
 
   @Column({nullable: true})
-  publishedDate: Date;
-
-  @Column({nullable: true})
   isPublished: boolean;
 
-  @ManyToOne(type => UserEntity, user => user.activityEntries)
-  author: UserEntity;
 
-  @OneToMany(type => ReviewEntity, review => review.)
-  reviews: Ireview
+  @ManyToOne(type => ActivityEntity, activity => activity.university)
+  activities: ActivityEntity
 
+  @ManyToOne()
+  activityLists: ActivityListEntity[]
 
 }

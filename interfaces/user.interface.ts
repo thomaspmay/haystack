@@ -2,7 +2,7 @@ import { Activity } from "./activity.interface";
 import { Review } from "./review.interface";
 
 
-export interface User {
+export interface user {
     id?: number;
     firstName?: string;
     lastName?: string;

@@ -3,7 +3,6 @@ import { BlogService } from '../service/blog.service';
 import { Observable, of } from 'rxjs';
 import { BlogEntry } from '../model/blog-entry.interface';
 import { JwtAuthGuard } from 'src/auth/guards/jwt-guard';
-import { BlogEntryEntity } from '../model/blog-entry.entity';
 import { UserIsAuthorGuard } from '../guards/user-is-author.guard';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
@@ -11,7 +10,7 @@ import { v4 as uuidv4 } from 'uuid';
 import path = require('path');
 import { Image } from '../model/Image.interface';
 import { join } from 'path';
-import { Ireview } from 'src/models/interfaces/review.interface';
+import { Review } from '../../../models/interfaces/review.interface';
 import { ReviewService } from './review.service';
 
 export const BLOG_ENTRIES_URL ='http://localhost:3000/api/blog-entries';
@@ -75,7 +74,7 @@ export class ReviewController {
 
     @UseGuards(JwtAuthGuard, UserIsAuthorGuard)
     @Put(':id')
-    updateOne(@Param('id') id: number, @Body() review: Ireview): Observable<BlogEntry> {
+    updateOne(@Param('id') id: number, @Body() review: Review): Observable<BlogEntry> {
         return this.blogService.updateOne(Number(id), review);
     }
 

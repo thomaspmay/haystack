@@ -29,15 +29,15 @@ export class BlogService {
     params = params.append('page', String(page));
     params = params.append('limit', String(limit));
 
-    return this.http.get<BlogEntriesPageable>('/api/blog-entries/user/' + String(userId), {params});
+    return this.http.get<BlogEntriesPageable>('/activity/user/' + String(userId), {params});
   }
 
   post(blogEntry: BlogEntry): Observable<BlogEntry> {
-    return this.http.post<BlogEntry>('/api/blog-entries', blogEntry);
+    return this.http.post<BlogEntry>('/activity', blogEntry);
   }
 
   uploadHeaderImage(formData: FormData): Observable<any> {
-    return this.http.post<FormData>('/api/blog-entries/image/upload', formData, {
+    return this.http.post<FormData>('/activity/image/upload', formData, {
       reportProgress: true,
       observe: 'events'
     });

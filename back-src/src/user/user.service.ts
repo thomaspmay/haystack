@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { UserEntity } from '../models/entities/user.entity';
 import { Repository, Like } from 'typeorm';
-import { Iuser, UserRole } from '../models/interfaces/user.interface';
+import { user, UserRole } from '../models/interfaces/user.interface';
 import { Observable, from, throwError } from 'rxjs';
 import { switchMap, map, catchError} from 'rxjs/operators';
 import { AuthService } from 'src/auth/services/auth.service';
@@ -16,7 +16,7 @@ export class UserService {
         private authService: AuthService
     ) {}
 
-    create(user: Iuser): Observable<Iuser> {
+    create(user: user): Observable<user> {
         return this.authService.hashPassword(user.password).pipe(
             switchMap((passwordHash: string) => {
                 const newUser = new UserEntity();
@@ -28,7 +28,7 @@ export class UserService {
                 newUser.role = UserRole.USER;
 
                 return from(this.userRepository.save(newUser)).pipe(
-                    map((user: Iuser) => {
+                    map((user: user) => {
                         const {password, ...result} = user;
                         return result;
                     }),
@@ -38,27 +38,27 @@ export class UserService {
         )
     }
 
-    findOne(id: number): Observable<Iuser> {
+    findOne(id: number): Observable<user> {
         return from(this.userRepository.findOne({id}, {relations: ['blogEntries']})).pipe(
-            map((user: Iuser) => {
+            map((user: user) => {
                 const {password, ...result} = user;
                 return result;
             } )
         )
     }
 
-    findAll(): Observable<Iuser[]> {
+    findAll(): Observable<user[]> {
         return from(this.userRepository.find()).pipe(
-            map((users: Iuser[]) => {
+            map((users: user[]) => {
                 users.forEach(function (v) {delete v.password});
                 return users;
             })
         );
     }
 
-    paginate(options: IPaginationOptions): Observable<Pagination<Iuser>> {
-        return from(paginate<Iuser>(this.userRepository, options)).pipe(
-            map((usersPageable: Pagination<Iuser>) => {
+    paginate(options: IPaginationOptions): Observable<Pagination<user>> {
+        return from(paginate<user>(this.userRepository, options)).pipe(
+            map((usersPageable: Pagination<user>) => {
                 usersPageable.items.forEach(function (v) {delete v.password});
                 return usersPageable;
             })

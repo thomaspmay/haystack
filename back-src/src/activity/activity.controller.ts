@@ -6,7 +6,7 @@ import path, { join } from 'path';
 import { Observable, of } from 'rxjs';
 import { JwtAuthGuard } from 'src/auth/guards/jwt-guard';
 import { UserIsAuthorGuard } from 'src/auth/guards/user-is-author.guard';
-import { Iactivity } from '../../../models/interfaces/activity.interface';
+import { Activity } from '../../../models/interfaces/activity.interface';
 import { ActivityService } from './activity.service';
 import { ActivityEntity } from '../../../models/entities/activity.entity';
 
@@ -32,7 +32,7 @@ export class ActivityController {
 
     @UseGuards(JwtAuthGuard)
     @Post()
-    create(@Body()activity: Iactivity, @Request() req): Observable<Iactivity> {
+    create(@Body()activity: Activity, @Request() req): Observable<Activity> {
         const user = req.user;
         return this.activityService.create(user, activity);
     }
@@ -77,13 +77,13 @@ export class ActivityController {
     }
 
     @Get(':id')
-    findOne(@Param('id') id: number): Observable<Iactivity> {
+    findOne(@Param('id') id: number): Observable<Activity> {
         return this.activityService.findOne(id);
     }
 
     @UseGuards(JwtAuthGuard, UserIsAuthorGuard)
     @Put(':id')
-    updateOne(@Param('id') id: number, @Body() activity: Iactivity): Observable<Iactivity> {
+    updateOne(@Param('id') id: number, @Body() activity: Activity): Observable<Activity> {
         return this.activityService.updateOne(Number(id), activity);
     }
 

@@ -1,7 +1,7 @@
 import { Iimage } from "./image.interface";
 
 
-export interface Iuniversity {
+export interface University {
     id?: number;
     name?: string;
     slug?: string;

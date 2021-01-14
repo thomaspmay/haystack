@@ -10,7 +10,7 @@ import {
     BeforeUpdate,
 } from 'typeorm';
 import * as bcrypt from 'bcrypt';
-import { User, UserRole } from '../interfaces/user.interface';
+import { user, UserRole } from '../interfaces/user.interface';
 import { ActivityEntity } from './activity.entity';
 import { ReviewEntity } from './review.entity';
 

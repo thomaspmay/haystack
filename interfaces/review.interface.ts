@@ -1,4 +1,4 @@
-import { User } from "./user.interface";
+import { user } from "./user.interface";
 
 export interface Review {
     id?: number;
@@ -7,7 +7,7 @@ export interface Review {
     createdAt?: Date;
     updatedAt?: Date;
     likes?: number;
-    author?: User;
+    author?: user;
     publishedDate?: Date;
     isPublished?: boolean;
     isAccepted?: boolean;

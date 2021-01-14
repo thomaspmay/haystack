@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { Observable, from, of } from 'rxjs';
-import { Iuser } from '../../models/interfaces/user.interface';
+import { User } from '../../../../models/interfaces/user.interface';
 const argon2 = require('argon2');
 
 @Injectable()
@@ -9,7 +9,7 @@ export class AuthService {
 
     constructor(private readonly jwtService: JwtService){}
 
-    generateJWT(user: Iuser): Observable <string> {
+    generateJWT(user: User): Observable <string> {
         return from(this.jwtService.signAsync({user}));
     }
 

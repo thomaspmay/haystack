@@ -3,8 +3,8 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { from, Observable, of } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { ActivityEntity } from 'src/models/entities/activity.entity';
-import { Iactivity } from 'src/models/interfaces/activity.interface';
-import { Iuser } from 'src/models/interfaces/user.interface';
+import { Activity } from 'src/models/interfaces/activity.interface';
+import { user } from 'src/models/interfaces/user.interface';
 import { UserService } from 'src/user/user.service';
 import { Repository } from 'typeorm';
 
@@ -17,7 +17,7 @@ export class ActivityService {
     ) {}
 
 
-    create(user: Iuser, activity: Iactivity): Observable<Iactivity> {
+    create(user: user, activity: Activity): Observable<Activity> {
         activity.author = user;
         console.log(activity);
         return this.generateSlug(activity.title).pipe(
@@ -28,7 +28,7 @@ export class ActivityService {
         )
     }
 
-    findAll(): Observable<Iactivity[]> {
+    findAll(): Observable<Activity[]> {
         return from(this.activityRepository.find({relations: ['author']}));
     }
 
@@ -51,20 +51,20 @@ export class ActivityService {
     //     )
     // }
 
-    findOne(id: number): Observable<Iactivity> {
+    findOne(id: number): Observable<Activity> {
         return from(this.activityRepository.findOne({id}, {relations: ['author']}));
     }
 
-    findByUser(userId: number): Observable<Iactivity[]> {
+    findByUser(userId: number): Observable<Activity[]> {
         return from(this.activityRepository.find({
             where: {
                 author: userId
             },
             relations: ['author']
-        })).pipe(map((activity: Iactivity[]) => activity))
+        })).pipe(map((activity: Activity[]) => activity))
     }
 
-    updateOne(id: number, activity: Iactivity): Observable<Iactivity> {
+    updateOne(id: number, activity: Activity): Observable<Activity> {
         return from(this.activityRepository.update(id, activity)).pipe(
             switchMap(() => this.findOne(id))
         )
